@@ -8,5 +8,5 @@ try {
 } catch (error) {
   console.log(error.message);
 }
-const db = mongoClient("sneakerhead-API");
+const db = mongoClient.db("sneakerhead-API");
 export default db;
