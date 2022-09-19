@@ -2,11 +2,6 @@ import db from "../Database/db.js";
 
 async function finalizePurchase(req, res) {
   const purchase = req.body;
-  const { authorization } = req.headers;
-  const token = authorization?.replace("Bearer ", "");
-  if (!token) {
-    return res.sendStatus(401);
-  }
   if (!purchase) {
     return res.sendStatus(422);
   }

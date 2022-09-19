@@ -1,11 +1,7 @@
 import db from "../Database/db.js";
 
 async function deleteSessions(req, res) {
-  const { authorization } = req.headers;
-  const token = authorization?.replace("Bearer ", "");
-  if (!token) {
-    return res.sendStatus(401);
-  }
+  const token = res.locals.token;
   try {
     const session = await db.collection("sessions").findOne({ token });
     if (!session) {
